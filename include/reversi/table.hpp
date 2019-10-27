@@ -40,7 +40,7 @@ namespace Reversi
     Table();
     bool set(unsigned int, unsigned int, unsigned int);
     unsigned int get(unsigned int, unsigned int);
-    bool is_valid_cordinates(unsigned int, unsigned int);
+    bool is_valid_coordinates(unsigned int, unsigned int);
     std::string tokenize(void);
 
   private:

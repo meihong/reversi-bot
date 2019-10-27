@@ -23,7 +23,7 @@ Reversi::Rule::Rule(void)
 
 /**
  * Sets a piece at the cell digignated by x and y coordinates.
- * The cordinates must be valid according to the rules.
+ * The coordinates must be valid according to the rules.
  *
  * @param  x x-coordinate to be set.
  * @param  y y-coordinate to be set.
@@ -110,7 +110,7 @@ int Reversi::Rule::_count(unsigned int x, unsigned int y, unsigned int side, boo
   int change;
 
   // Check if coordinates are relevant.
-  if (!table.is_valid_cordinates(x, y) || table.get(x, y) != REVERSI_PIECE_VOID) {
+  if (!table.is_valid_coordinates(x, y) || table.get(x, y) != REVERSI_PIECE_VOID) {
     return -1;
   }
 

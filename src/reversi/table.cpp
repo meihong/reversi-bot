@@ -36,7 +36,7 @@ bool Reversi::Table::set(unsigned int x, unsigned int y, unsigned int piece)
 {
   int position;
 
-  if (is_valid_cordinates(x, y)) {
+  if (is_valid_coordinates(x, y)) {
     position = _get_pointer(x, y);
     table[position] = piece;
     return true;
@@ -56,7 +56,7 @@ bool Reversi::Table::set(unsigned int x, unsigned int y, unsigned int piece)
  */
 unsigned int Reversi::Table::get(unsigned int x, unsigned int y)
 {
-  if (is_valid_cordinates(x, y)) {
+  if (is_valid_coordinates(x, y)) {
     return table[_get_pointer(x, y)];
   } else {
     return REVERSI_PIECE_INVALID;
@@ -65,14 +65,15 @@ unsigned int Reversi::Table::get(unsigned int x, unsigned int y)
 
 
 /**
- * Validate if given cordinates are valid.
+ * Validate if given coordinates are valid.
  * @param  x     horizontal coordinate to be set
  * @param  y     vertical coordinate to be set
  * @return true if given cordnates are valid.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
  */
-bool Reversi::Table::is_valid_cordinates(unsigned int x, unsigned int y) {
+bool Reversi::Table::is_valid_coordinates(unsigned int x, unsigned int y)
+{
   return x < REVERSI_TABLE_SIZE && y < REVERSI_TABLE_SIZE;
 }
 
@@ -158,7 +159,7 @@ void Reversi::Table::_init()
  * @param  x     horizontal coordinate to be speficied
  * @param  y     vertical coordinate to be specified
  * @return the pointer of `table` array
- * @return true if given cordnates are valid.
+ * @return true if given coordnates are valid.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
  */
