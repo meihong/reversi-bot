@@ -22,7 +22,8 @@ Reversi::Rule::Rule(void)
 
 
 /**
- * Sets a piece at the cell digignated by x and y coordinates.  The cordinates must be valid according to the rules.
+ * Sets a piece at the cell digignated by x and y coordinates.
+ * The cordinates must be valid according to the rules.
  *
  * @param  x x-coordinate to be set.
  * @param  y y-coordinate to be set.
@@ -43,11 +44,13 @@ bool Reversi::Rule::set(unsigned int x, unsigned int y)
 
 
 /**
- * Counts how much pieces a player gets if a new piece is set to the digignated cell.
+ * Counts how much pieces a player gets if a new piece is set to the
+ * digignated cell.
  *
  * @param  x x-coordinate to be set.
  * @param  y y-coordinate to be set.
- * @return number how much pieces they get.  If the digignated cell is irrelevant, it returns -1.
+ * @return number how much pieces they get.  If the digignated cell is
+ * irrelevant, it returns -1.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
  */
@@ -60,7 +63,8 @@ int Reversi::Rule::count_potential(unsigned int x, unsigned int y, unsigned int 
 /**
  * Gets who can move now.
  *
- * @return player who can move.  It is specified by `REVERSI_PIECE_BLACK` or `REVERSI_PIECE_WHITE`.
+ * @return player who can move.  It is specified by `REVERSI_PIECE_BLACK`
+ * or `REVERSI_PIECE_WHITE`.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
  */
@@ -85,13 +89,18 @@ unsigned int Reversi::Rule::get_counterpart(void)
 // private
 
 /**
- * Changes cells which can be get and returns the number how much the player actually got.  If given true to `count_only` it returns only the number and nothing is changed on the table.  Please note that this function never set a piece to the digignated cell.
+ * Changes cells which can be get and returns the number how much
+ * the player actually got.  If given true to `count_only` it returns
+ * only the number and nothing is changed on the table.  Please note
+ * that this function never set a piece to the digignated cell.
  *
  * @param  x    x-coordinate to be set.
  * @param  y    y-coordinate to be set.
  * @param  side Which side move to the digignated cell.
- * @param  count_only If true is set, the function returns the number but never change anything on the table.
- * @retur The number the player get.  If the digignated cell is irrelevant, it returns -1.
+ * @param  count_only If true is set, the function returns the number
+ * but never change anything on the table.
+ * @retur The number the player get.  If the digignated cell is
+ * irrelevant, it returns -1.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
  */
@@ -125,15 +134,21 @@ int Reversi::Rule::_count(unsigned int x, unsigned int y, unsigned int side, boo
 }
 
 /**
- * Changes cells in the digignated direction by `direction_x` and `direction_y`, which can be get and returns the number how much the player actually got.  If given true to `count_only` it returns only the number and nothing is changed on the table.  Please note that this function never set a piece to the digignated cell.
+ * Changes cells in the digignated direction by `direction_x` and
+ * `direction_y`, which can be get and returns the number how much
+ * the player actually got.  If given true to `count_only` it returns
+ * only the number and nothing is changed on the table.  Please note
+ * that this function never set a piece to the digignated cell.
  *
  * @param  x    x-coordinate to be set.
  * @param  y    y-coordinate to be set.
  * @param  x_direction horizontal direction to be changed.
  * @param  x_direction vertical direction to be changed.
  * @param  side Which side move to the digignated cell.
- * @param  count_only If true is set, the function returns the number but never change anything on the table.
- * @return The number the player get.  If the digignated cell is irrelevant, it returns -1.
+ * @param  count_only If true is set, the function returns the number
+ * but never change anything on the table.
+ * @return The number the player get.  If the digignated cell is
+ * irrelevant, it returns -1.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
  */
@@ -184,7 +199,9 @@ unsigned int Reversi::Rule::_count_by_dir(unsigned int x, unsigned int y,
 
 
 /**
- * Actually changes cells in the digignated direction by `direction_x` and `direction_y`.  This function should be called only by `_count_by_dir`.
+ * Actually changes cells in the digignated direction by `direction_x`
+ *  and `direction_y`.  This function should be called only by
+ * `_count_by_dir`.
  *
  * @param  x    x-coordinate to be set.
  * @param  y    y-coordinate to be set.

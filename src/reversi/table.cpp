@@ -22,10 +22,12 @@ Reversi::Table::Table()
 
 
 /**
- *Set a status of a cell whether a white piece is placed or a black one, or nothing is placed.
+ *Set a status of a cell whether a white piece is placed or a black one,
+ * or nothing is placed.
  * @param  x     horizontal coordinate to be set
  * @param  y     vertical coordinate to be set
- * @param  piece which color to be set.  This must be specified with constants: `REVERSI_PIECE_WHITE` or `REVERSI_PIECE_BLACK`.
+ * @param  piece which color to be set.  This must be specified with
+ *  constants: `REVERSI_PIECE_WHITE` or `REVERSI_PIECE_BLACK`.
  * @return true if successfully set.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
