@@ -8,13 +8,13 @@
 #define REVERSI_TABLE_HPP
 
 /// indicates the piece is white.
-#define REVERSI_PIECE_WHITE 3
+#define REVERSI_PIECE_WHITE   3
 /// indicates the piece is black.
-#define REVERSI_PIECE_BLACK 2
+#define REVERSI_PIECE_BLACK   2
 /// indicates the piece is void.
-#define REVERSI_PIECE_VOID  1
+#define REVERSI_PIECE_VOID    1
 /// indicates the piece is invalid.
-#define REVERSI_PIECE_NULL  0
+#define REVERSI_PIECE_INVALID 0
 
 /// Maximum size of a table.
 #define REVERSI_TABLE_SIZE  8

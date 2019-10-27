@@ -46,7 +46,7 @@ bool Reversi::Table::set(unsigned int x, unsigned int y, unsigned int piece)
  * Get a status of a cell whether a white piece is placed or a black one, or nothing is placed.
  * @param  x     horizontal coordinate to be set
  * @param  y     vertical coordinate to be set
- * @return the current status of a specified cell.  This value must be `REVERSI_PIECE_WHITE`, `REVERSI_PIECE_BLACK` or `REVERSI_PIECE_NULL`.
+ * @return the current status of a specified cell.  This value must be `REVERSI_PIECE_WHITE`, `REVERSI_PIECE_BLACK` or `REVERSI_PIECE_INVALID`.
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date   2019-10-22
  */
@@ -55,7 +55,7 @@ unsigned int Reversi::Table::get(unsigned int x, unsigned int y)
   if (is_valid_cordinates(x, y)) {
     return table[_get_pointer(x, y)];
   } else {
-    return REVERSI_PIECE_NULL;
+    return REVERSI_PIECE_INVALID;
   }
 }
 
