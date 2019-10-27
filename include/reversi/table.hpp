@@ -7,6 +7,8 @@
 #ifndef REVERSI_TABLE_HPP
 #define REVERSI_TABLE_HPP
 
+#include <string>
+
 /// indicates the piece is white.
 #define REVERSI_PIECE_WHITE   3
 /// indicates the piece is black.
@@ -16,7 +18,7 @@
 /// indicates the piece is invalid.
 #define REVERSI_PIECE_INVALID 0
 
-/// Maximum size of a table.
+/// Maximum size of a table.  This have to be multiples of 8.
 #define REVERSI_TABLE_SIZE  8
 /// Square measure of a table.  A table must be a square.
 #define REVERSI_TABLE_AREA  REVERSI_TABLE_SIZE * REVERSI_TABLE_SIZE
@@ -39,6 +41,7 @@ namespace Reversi
     bool set(unsigned int, unsigned int, unsigned int);
     unsigned int get(unsigned int, unsigned int);
     bool is_valid_cordinates(unsigned int, unsigned int);
+    std::string tokenize(void);
 
   private:
     void _init();

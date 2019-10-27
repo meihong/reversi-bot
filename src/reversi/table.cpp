@@ -5,6 +5,8 @@
  * @author Kenta ONISHI (kenta@0024s.com)
  * @date 2019-10-22
  */
+#include <string>
+#include <stdio.h>
 #include "table.hpp"
 
 
@@ -70,6 +72,50 @@ unsigned int Reversi::Table::get(unsigned int x, unsigned int y)
  */
 bool Reversi::Table::is_valid_cordinates(unsigned int x, unsigned int y) {
   return x < REVERSI_TABLE_SIZE && y < REVERSI_TABLE_SIZE;
+}
+
+
+/**
+ * Tokenize the table into hexadecimal string.  Every cell is described
+ * in 2 bits, therefore the length of tokenized string should be 128 bits
+ * in byte sequence and 16 letters if the size of table is 8 by 8.
+ * @return the tokenized table.
+ * @author Kenta ONISHI (kenta@0024s.com)
+ * @date   2019-10-27
+ */
+std::string Reversi::Table::tokenize(void)
+{
+  std::string tokenized;
+  unsigned char tokenizing = 0;
+  char hexel[3]; // use it to convert a tokenized piece into hex string.
+  unsigned int x = 0, y = 0, cell;
+
+  // Table size must be multipes of 8 because this function needs to be.
+  for (int i = 0; i < REVERSI_TABLE_AREA; i++) {
+    cell = table[i];
+    // Describes 1 cell with 2 bits.
+    tokenizing <<= 2;
+    if (cell == REVERSI_PIECE_WHITE)
+      tokenizing |= 2;
+    else if (cell == REVERSI_PIECE_BLACK)
+      tokenizing |= 1;
+
+    x++;
+    if (x >= REVERSI_TABLE_SIZE) {
+      x = 0;
+      y++;
+    }
+
+    // Tokenize every 2 cells.
+    if ((i & 0x01) == 0x01) {
+      tokenized += (tokenizing < 0x0a ?
+		    '0' + tokenizing :
+		    'a' + (tokenizing - 0x0a));
+      tokenizing = 0;
+    }
+  }
+
+  return tokenized;
 }
 
 
