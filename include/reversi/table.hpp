@@ -42,6 +42,7 @@ namespace Reversi
     unsigned int get(unsigned int, unsigned int);
     bool is_valid_coordinates(unsigned int, unsigned int);
     std::string tokenize(void);
+    bool detokenize(std::string);
 
   private:
     void _init();

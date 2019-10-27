@@ -122,6 +122,48 @@ std::string Reversi::Table::tokenize(void)
 }
 
 
+/**
+ * Detokenize the specified hexadecimal string and import into the table.
+ * @param  tokenized Tokenized table to be decoded.
+ * @return false if `tokenized` is invalid.
+ * @author Kenta ONISHI (kenta@0024s.com)
+ * @date   2019-10-27
+ */
+bool Reversi::Table::detokenize(std::string tokenized)
+{
+  signed char piece, testee;
+
+  // Check if `tokenized` is valid.
+  if (tokenized.length() != REVERSI_TABLE_AREA / 2)
+    return false;
+  for (int i = 0; i < REVERSI_TABLE_AREA / 2; i++) {
+    testee = tokenized.substr(i, 1).c_str()[0];
+    if (testee < '0' ||
+	testee > 'f' ||
+	(testee > '9' && testee < 'a'))
+      return false;
+  }
+
+  // Initialize the table again.
+  _clear();
+
+  for (int i = 0; i < REVERSI_TABLE_AREA / 2 * 2; i++) {
+    if ((i & 0x01) == 0) {
+      piece = tokenized.substr(i >> 1, 1).c_str()[0];
+      piece = piece > '9' ? (piece - 'a' + 0x0a) : piece - '0';
+    }
+    testee = (piece & 0x0c) >> 2;
+    piece  = (piece & 0x03) << 2;
+    if (testee == 2)
+      table[i] = REVERSI_PIECE_WHITE;
+    else if (testee == 1)
+      table[i] = REVERSI_PIECE_BLACK;
+  }
+
+  return true;
+}
+
+
 // private
 
 
